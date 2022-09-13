@@ -1,0 +1,65 @@
+// Exercise 1 Section
+const numbers = [2, 22, 12, 17, 18, 39, 129];
+
+function arraySum(arr) {
+  let sum = 0;
+
+  arr.forEach((number) => {
+    sum += number;
+  });
+
+  return sum;
+}
+console.log(arraySum(numbers));
+
+// Exercise 2 Section
+
+let book = {};
+
+book.title = "Harry Potter and the prisoner of Azkaban";
+book.author = "J.K Rowling";
+book.pageCount = 317;
+book.readcount = 1;
+book.info = function () {
+  return `${this.title} by ${this.author} is ${this.pages} and i have read it ${this.readCount} number of times.`;
+};
+
+//Exercise 3 section
+let sentence = "The quick brown fox jumps over the lazy dog";
+
+function reverseWords(sentence) {
+  let result = [];
+  let words = sentence.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    let letters = words[i].split("");
+    letters.reverse();
+    let reverseWord = letters.join("");
+    result.push(reverseWord);
+  }
+  return result.join(" ");
+}
+console.log(reverseWords(sentence));
+
+//Exercise 4
+let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
+
+function csvConverter(data) {
+  let headersStr = data.slice(0, data.indexOf("\n")).split(",");
+  let valuesList = data.slice(data.indexOf("\n") + 1).split("\n");
+
+  const customArr = valuesList.map((row) => {
+    let values = row.split(",");
+    let obj = {};
+
+    values.forEach((col, index) => {
+      if (idx < headersStr.length) {
+        obj[headers[idx]] = col;
+      } else {
+        obj[`misc${idx - headers.lenght + 1}`] = value;
+      }
+    });
+    return obj;
+  });
+  return customArr;
+}
+console.log(csvConverter(csvData));
